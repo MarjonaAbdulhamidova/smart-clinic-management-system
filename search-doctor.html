@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Clinic - Find a Doctor</title>
+<style>
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 0; background: #f0f5fa; color: #26374a; }
+header {
+    background: #6542a6; color: white; padding: 20px 7%;
+    display: flex; justify-content: space-between; align-items: center;
+}
+main { max-width: 850px; margin: 40px auto; padding: 20px; }
+h1 { color: #382568; }
+.search-box, .doctor-card {
+    background: white; padding: 25px; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07); margin-bottom: 20px;
+}
+input {
+    width: 70%; padding: 13px; border: 1px solid #cbd5e1;
+    border-radius: 7px; font-size: 15px;
+}
+button {
+    padding: 13px 20px; background: #6542a6; color: white;
+    border: 0; border-radius: 7px; cursor: pointer;
+}
+.doctor-card { display: flex; gap: 20px; align-items: center; }
+.avatar {
+    width: 65px; height: 65px; border-radius: 50%;
+    background: #e9ddff; display: grid; place-items: center;
+    font-size: 30px;
+}
+.details h2 { margin: 0 0 8px; color: #382568; }
+.details p { margin: 5px 0; color: #64748b; }
+.status { color: #16834a !important; font-weight: bold; }
+#results { margin-top: 25px; }
+</style>
+</head>
+<body>
+<header>
+    <h2>🏥 Smart Clinic</h2>
+    <span>Patient Portal</span>
+</header>
+<main>
+    <h1>Find Your Doctor</h1>
+    <p>Search for a doctor by name to find the right healthcare professional.</p>
+
+    <div class="search-box">
+        <label for="doctorName"><b>Doctor Name</b></label><br><br>
+        <input id="doctorName" type="text" value="John Smith"
+               placeholder="Enter doctor's name">
+        <button onclick="searchDoctor()">Search</button>
+    </div>
+
+    <div id="results">
+        <h3>Search Results</h3>
+        <div class="doctor-card">
+            <div class="avatar">👨‍⚕️</div>
+            <div class="details">
+                <h2>Dr. John Smith</h2>
+                <p>Specialty: Cardiology</p>
+                <p>Experience: 10 years</p>
+                <p class="status">Available for appointments</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+function searchDoctor() {
+    const name = document.getElementById("doctorName").value.trim();
+    const results = document.getElementById("results");
+    if (name.toLowerCase() === "john smith") {
+        results.innerHTML = `
+        <h3>Search Results</h3>
+        <div class="doctor-card">
+          <div class="avatar">👨‍⚕️</div>
+          <div class="details">
+            <h2>Dr. John Smith</h2>
+            <p>Specialty: Cardiology</p>
+            <p>Experience: 10 years</p>
+            <p class="status">Available for appointments</p>
+          </div>
+        </div>`;
+    } else {
+        results.innerHTML = "<h3>No matching doctor found in demo data.</h3>";
+    }
+}
+</script>
+</body>
+</html>
