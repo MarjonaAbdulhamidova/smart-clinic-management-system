@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Clinic - Add Doctor</title>
+<style>
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body {
+    margin: 0; background: #eef3f8; color: #26374a;
+}
+header {
+    background: #183b65; color: white; padding: 20px 7%;
+    display: flex; justify-content: space-between; align-items: center;
+}
+header h2 { margin: 0; }
+header span { font-size: 14px; }
+.container {
+    max-width: 850px; margin: 40px auto; padding: 0 20px;
+}
+.card {
+    background: white; padding: 32px; border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+h1 { color: #183b65; margin-top: 0; }
+.subtitle { color: #718096; margin-bottom: 25px; }
+.grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+}
+label { display: block; font-weight: bold; margin-bottom: 7px; }
+input, select {
+    width: 100%; padding: 12px; border: 1px solid #cbd5e1;
+    border-radius: 7px; margin-bottom: 18px; font-size: 15px;
+}
+button {
+    background: #1769aa; color: white; border: 0;
+    border-radius: 7px; padding: 14px 24px;
+    font-weight: bold; cursor: pointer;
+}
+button:hover { background: #104e83; }
+@media(max-width:600px) {
+    .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+    <h2>🏥 Smart Clinic</h2>
+    <span>Administrator Portal | Admin</span>
+</header>
+
+<div class="container">
+<div class="card">
+    <h1>Add New Doctor</h1>
+    <p class="subtitle">Enter the doctor's information to add them to the clinic system.</p>
+
+    <form id="doctorForm">
+        <div class="grid">
+            <div>
+                <label for="name">Full Name</label>
+                <input id="name" type="text" placeholder="Dr. John Smith" required>
+            </div>
+            <div>
+                <label for="email">Email Address</label>
+                <input id="email" type="email" placeholder="doctor@example.com" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input id="phone" type="tel" placeholder="+1 555 123 4567" required>
+            </div>
+            <div>
+                <label for="specialty">Specialty</label>
+                <select id="specialty" required>
+                    <option value="">Select specialty</option>
+                    <option>Cardiology</option>
+                    <option>Dermatology</option>
+                    <option>Neurology</option>
+                    <option>Pediatrics</option>
+                    <option>General Medicine</option>
+                </select>
+            </div>
+            <div>
+                <label for="availability">Available Days</label>
+                <input id="availability" type="text" placeholder="Monday - Friday" required>
+            </div>
+            <div>
+                <label for="password">Temporary Password</label>
+                <input id="password" type="password" placeholder="Create password" required>
+            </div>
+        </div>
+        <button type="submit">Add Doctor</button>
+        <p id="message" role="status"></p>
+    </form>
+</div>
+</div>
+
+<script>
+document.getElementById("doctorForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("message").textContent =
+        "Demo only: Doctor information has not been saved to a database.";
+});
+</script>
+</body>
+</html>
